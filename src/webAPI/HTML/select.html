@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script type='text/javascript' src='../JS/javascript.js'></script>
+<title>{{.PageTitle}}</title>
+</head>
+
+<body>
+
+  <form action="/selected" method="post">
+      <input type="text" name="inputSelection">
+      <p> Select a data stream</p>
+
+      {{with $1:=.PageRadioButtons}}
+             {{range $1}}
+               <input type="radio" name={{.Name}} value={{.Value}} {{if .IsDisabled}} disabled=true {{end}} {{if .IsChecked}}checked{{end}}> {{.Text}}
+             {{end}}
+      {{end}}
+
+      <input name="dataSelect" type="submit" value="Submit">
+  </form>
+  <p>
+     {{with $2:=.Selection}} The {{$2}} {{end}} {{with $3:=.CompanyNumber}} request for details against the companyNo {{$3}} {{end}} {{with $4:=.Answer}} returned {{$4}} {{end}}
+  </p>
+
+</body>
+</html>
