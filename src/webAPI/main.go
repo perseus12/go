@@ -47,7 +47,7 @@ func DisplayWebForm(w http.ResponseWriter, r *http.Request) {
 		PageRadioButtons: MyRadioButtons,
 	}
 
-	t, err := template.ParseFiles("HTML/select.html") //parse the html file homepage.html
+	t, err := template.ParseFiles("HTML/select.html") //parse the html file HTML/select.html
 	if err != nil {                                   // if there is an error
 		log.Print("template parsing error: ", err) // log it
 	}
@@ -75,7 +75,7 @@ func UserSelected(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// generate page by passing page variables into template
-	t, err := template.ParseFiles("HTML/select.html") //parse the html file homepage.html
+	t, err := template.ParseFiles("HTML/select.html") //parse the html file HTML/select.html
 	if err != nil {                                   // if there is an error
 		log.Print("template parsing error: ", err) // log it
 	}
